@@ -134,7 +134,7 @@ A reference query was created so that the original source query remained availab
 
 Customer-related tables were first arranged together to support the modelling process.
 
-**[SCREENSHOT — S02: Customer-related source tables arranged together]**
+![Customer source tables](images/S02-customer-source-tables.png)
 
 ---
 
@@ -144,17 +144,17 @@ Customer-related tables were first arranged together to support the modelling pr
 
 Additional information was incorporated through merges with `user_details` and `address`.
 
-**[SCREENSHOT — S03: `dim_customer` and `user_details` merge configuration]**
+![Customer merge](images/S03-customer-merge.png)
 
 The `cities` table also required its first row to be promoted to headers before it could be used correctly.
 
 The completed customer dimension was cleaned by removing unnecessary fields such as the hash key, source ID, and `is_true`, while remaining fields were standardised using `snake_case`.
 
-**[SCREENSHOT — S04: Completed `dim_customer` after merges and transformations]**
+![Customer merge](images/S03-customer-merge.png)
 
 The original source relationships were then removed so that the new dimensional structure could be established.
 
-**[SCREENSHOT — S05: `dim_customer` model without original relationships]**
+![Completed customer dimension](images/S04-dim-customer-after-merges.png)
 
 ---
 
@@ -170,11 +170,11 @@ A new `product_key` was created to uniquely identify products within the analyti
 
 The customer and product dimensions were then positioned together within the developing model.
 
-**[SCREENSHOT — S06: `dim_customer` and `dim_product` positioned together]**
+![Customer and product dimensions](images/S06-customer-product-model.png)
 
 The remaining model structure after creating the two dimensions is shown below.
 
-**[SCREENSHOT — S07: Model after creating `dim_customer` and `dim_product`]**
+![Model after dimension creation](images/S07-model-after-dimension-creation.png)
 
 ---
 
@@ -192,7 +192,7 @@ A reference of `order_line_items` was then created and renamed `fact_sales`.
 
 The tables required to construct the sales fact were assembled before relationships were established.
 
-**[SCREENSHOT — S08: Tables used in constructing `fact_sales`]**
+![Sales source tables](images/S08-sales-source-tables.png)
 
 ---
 
@@ -206,7 +206,7 @@ The total line value was:
 
 This value was used as a reference point to verify that transformations and merges did not unintentionally alter the underlying transaction values.
 
-**[SCREENSHOT — S09: Sales total validation]**
+![Sales validation](images/S09-sales-validation.png)
 
 ---
 
