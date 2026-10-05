@@ -90,7 +90,7 @@ The final model provides a structured foundation for analysing:
 ## Project Documentation
 
 For the full technical walkthrough, including transformation steps, modelling decisions, relationships, validation, and Row-Level Security:
-- [Power BI File](PowerBI/power-bi-data-modelling.pbix)
+- [Power BI File](PowerBi/power-bi-data-modelling.pbix)
 - [Technical Documentation](technical-documentation.md)
 
 
