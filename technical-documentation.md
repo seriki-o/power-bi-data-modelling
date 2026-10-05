@@ -216,11 +216,11 @@ The core fact and dimension tables were deliberately arranged into the intended 
 
 `fact_sales` was positioned as the central fact table, with `dim_customer`, `dim_product`, `dim_geo`, `dim_date`, and `dim_order_flags` surrounding it.
 
-**[SCREENSHOT — S10: Star-schema design before relationships]**
+![Sales star schema design](images/S10-sales-star-schema-design.png)
 
 Relationships were then established between the central `fact_sales` table and its surrounding dimensions, primarily using one-to-many relationships from the dimension side to the fact side.
 
-**[SCREENSHOT — S11: Completed sales star schema relationships]**
+![Sales star schema relationships](images/S11-sales-star-schema-relationships.png)
 
 This established the core sales star schema, with dimensions providing descriptive context and `fact_sales` containing the underlying sales transactions and measurable values.
 
@@ -242,7 +242,7 @@ The model was then extended with `fact_inventory`, which is connected to the pro
 
 This keeps inventory as a separate business process while allowing it to be analysed using shared product information.
 
-**[SCREENSHOT — S12: Model after connecting `fact_inventory`]**
+![Model with inventory](images/S12-model-with-inventory.png)
 
 ---
 
@@ -256,11 +256,12 @@ A reference of `campaign_log` was used to create `dim_campaign`.
 
 Measure-related fields such as date, clicks, spend, and impressions were removed so that descriptive campaign information could be separated from performance data.
 
-**[SCREENSHOT — S13: Removing unnecessary measure columns from campaign data]**
+![Campaign column removal](images/S13-campaign-column-removal.png)
+
 
 Duplicate campaign records were then identified and removed.
 
-**[SCREENSHOT — S14: Campaign data after duplicate removal]**
+![Campaign duplicate removal](images/S14-campaign-duplicate-removal.png)
 
 The resulting table was used as the descriptive campaign dimension.
 
@@ -272,7 +273,7 @@ The `campaignskus` table required restructuring because of incorrectly labelled 
 
 The first row was promoted to headers.
 
-**[SCREENSHOT — S15: `campaignskus` before correcting the column-header structure]**
+![Cleaned campaign dimension](images/S15-dim-campaign-cleaned.png)
 
 The SKU field contained multiple products within individual rows. The values were split into separate rows and whitespace was trimmed before the resulting campaign-product relationships were incorporated into `fact_promotion_coverage`.
 
@@ -303,7 +304,7 @@ The final campaign spend fact contains:
 
 It is connected to `dim_campaign` and `dim_date`, allowing campaign performance to be analysed by campaign and time.
 
-**[SCREENSHOT — S16: `fact_promotion_coverage`, `dim_campaign`, and `fact_campaign_spend` in the model]**
+![Campaign SKU header issue](images/S16-campaignsku-header-issue.png)
 
 ---
 
@@ -325,11 +326,12 @@ Shipment, invoice, and payment information were then incorporated.
 
 A calculated field was created to measure the number of days between the order date and payment date.
 
-**[SCREENSHOT — S17: `fact_order_process` table]**
+![Campaign promotion and spend model](images/S17-campaign-model.png)
 
 The completed process fact was then integrated into the wider model.
 
-**[SCREENSHOT — S18: Model after integrating `fact_order_process`]**
+![Order process fact table](images/S18-fact-order-process.png)
+
 
 ---
 
@@ -347,7 +349,7 @@ The date dimension provides a common time structure that can be shared across fa
 
 It is used with sales targets and campaign spending to support consistent time-based analysis.
 
-**[SCREENSHOT — S19: Model with security, `fact_sales_target`, and `dim_date`]**
+![Order process integrated into model](images/S19-order-process-in-model.png)
 
 ---
 
@@ -363,7 +365,7 @@ was created.
 
 The security configuration used a lookup-based approach to determine the appropriate region for each user.
 
-**[SCREENSHOT — S20: Creation of the `regional_access` security role]**
+![Regional access role](images/S20-regional-access-role.png)
 
 The role was tested using Power BI's **View as Roles** functionality.
 
@@ -373,15 +375,15 @@ The test used:
 
 with the user associated with the Europe region.
 
-**[SCREENSHOT — S23: View as Roles test for Hans Weber / Europe]**
+![View as Hans Weber](images/S23-view-as-role.png)
 
 The restricted model was then inspected to verify that the appropriate measures were available to the user.
 
-**[SCREENSHOT — S24: Measures viewed as Hans Weber]**
+**![Measures filtered by regional access](images/S24-rls-measures-as-user.png)
 
 The customer data was also inspected to verify that the regional restriction was being applied.
 
-**[SCREENSHOT — S25: `dim_customer` viewed as Hans Weber]**
+![Customer data filtered by regional access](images/S25-rls-customer-data-as-user.png)
 
 ---
 
@@ -397,11 +399,11 @@ Measures created included:
 
 Centralising measures keeps analytical calculations organised and separate from the individual fact tables.
 
-**[SCREENSHOT — S21: Measures in normal view]**
+![Measures](images/S21-measures.png)
 
 The normal customer dimension view was also retained as a reference when validating the model and comparing the unrestricted and RLS-filtered views.
 
-**[SCREENSHOT — S22: `dim_customer` in normal view]**
+![Customer dimension in normal view](images/S22-dim-customer-view.png)
 
 ---
 
@@ -522,7 +524,7 @@ The final model consists of several interconnected dimensions, facts, and suppor
 
 The overall architecture is a **dimensional model built around a core sales star schema, with additional related fact tables and specialised modelling structures.**
 
-**[SCREENSHOT — S26: Final data model]**
+![Final data model](images/S26-final-model.png)
 
 ---
 
@@ -593,4 +595,4 @@ The project demonstrates the process of taking operational data through preparat
 
 The resulting architecture is built around a **core sales star schema**, with additional fact tables and specialised structures supporting other business processes.
 
-**[SCREENSHOT — S26: Final data model]**
+![Final data model](images/S26-final-model.png)
