@@ -212,7 +212,7 @@ This value was used as a reference point to verify that transformations and merg
 
 The core fact and dimension tables were deliberately arranged into the intended Star Schema before relationships were created.
 
-`fact_sales` was positioned as the central fact table, with `dim_customer`, `dim_product`, `dim_geo`, `dim_date`, and `dim_order_flags` surrounding it.
+`fact_sales` was positioned as the central fact table, with `dim_customer`, `dim_product`, `dim_geo`, and `dim_order_flags` surrounding it.
 
 ![Sales star schema design](images/S10-sales-star-schema-design.png)
 
