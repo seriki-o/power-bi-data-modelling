@@ -240,8 +240,6 @@ The model was then extended with `fact_inventory`, which is connected to the pro
 
 This keeps inventory as a separate business process while allowing it to be analysed using shared product information.
 
-![Model with inventory](images/S12-model-with-inventory.png)
-
 ---
 
 # 12. Campaign Modelling
@@ -254,12 +252,12 @@ A reference of `campaign_log` was used to create `dim_campaign`.
 
 Measure-related fields such as date, clicks, spend, and impressions were removed so that descriptive campaign information could be separated from performance data.
 
-![Campaign column removal](images/S13-campaign-column-removal.png)
+![Campaign column removal](images/S12-campaign-column-removal.png)
 
 
 Duplicate campaign records were then identified and removed.
 
-![Campaign duplicate removal](images/S14-campaign-duplicate-removal.png)
+![Campaign duplicate removal](images/S13-campaign-duplicate-removal.png)
 
 The resulting table was used as the descriptive campaign dimension.
 
@@ -271,7 +269,7 @@ The `campaignskus` table required restructuring because of incorrectly labelled 
 
 The first row was promoted to headers.
 
-![Cleaned campaign dimension](images/S15-dim-campaign-cleaned.png)
+![Cleaned campaign dimension](images/S14-dim-campaign-cleaned.png)
 
 The SKU field contained multiple products within individual rows. The values were split into separate rows and whitespace was trimmed before the resulting campaign-product relationships were incorporated into `fact_promotion_coverage`.
 
@@ -302,7 +300,7 @@ The final campaign spend fact contains:
 
 It is connected to `dim_campaign` and `dim_date`, allowing campaign performance to be analysed by campaign and time.
 
-![Campaign SKU header issue](images/S16-campaignsku-header-issue.png)
+![Campaign SKU header issue](images/S15-campaignsku-header-issue.png)
 
 ---
 
@@ -324,11 +322,11 @@ Shipment, invoice, and payment information were then incorporated.
 
 A calculated field was created to measure the number of days between the order date and payment date.
 
-![Campaign promotion and spend model](images/S17-campaign-model.png)
+![Campaign promotion and spend model](images/S16-campaign-model.png)
 
 The completed process fact was then integrated into the wider model.
 
-![Order process fact table](images/S18-fact-order-process.png)
+![Order process fact table](images/S17-fact-order-process.png)
 
 
 ---
@@ -347,7 +345,7 @@ The date dimension provides a common time structure that can be shared across fa
 
 It is used with sales targets and campaign spending to support consistent time-based analysis.
 
-![Order process integrated into model](images/S19-order-process-in-model.png)
+![Order process integrated into model](images/S18-order-process-in-model.png)
 
 ---
 
