@@ -101,8 +101,6 @@ dim_product ---- fact_sales ---- dim_geo
                          |
                          |
                       dim_date
-                         |
-                  dim_order_flags
 ```
 
 The dimensions contain descriptive attributes, while the fact table contains transactional data and measurable values.
