@@ -93,5 +93,8 @@ For the full technical walkthrough, including transformation steps, modelling de
 - [Power BI File](PowerBi/power-bi-data-modelling.pbix)
 - [Technical Documentation](technical-documentation.md)
 
+## Connect
+
+[GitHub](https://github.com/seriki-o) · [LinkedIn](https://www.linkedin.com/in/oreoluwa-seriki-51a30424a/)
 
 
